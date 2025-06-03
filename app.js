@@ -5,7 +5,7 @@ const { sequelize } = require('./models');
 
 require('dotenv').config();
 app.use(cors({
-  origin: 'http://localhost:3000', // <--- SOLO permites el frontend local
+  origin: 'http://localhost:3001', // <--- SOLO permites el frontend local
   credentials: true
 }));
 
