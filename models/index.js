@@ -20,6 +20,7 @@ const ReporteMater = require('./repor_detalle_mate');
 const ReportDetPerson = require('./repor_detalle_personal');
 const ReportDetActivi = require('./repor_actividades');
 const ReportDetActiviSigu = require('./repor_acti_sigu');
+
 //Por ejemplo: Empleado.belongsTo(Cargo, { foreignKey: 'cargo' });
 
 module.exports = {

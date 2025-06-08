@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors'); // <--- AÑADIDO
 const app = express();
 const { sequelize } = require('./models');
+const reportesRoutes = require('./routes/reportes.routes');
 
 require('dotenv').config();
 app.use(cors({
@@ -12,7 +13,7 @@ app.use(cors({
 app.use(express.json());
 // Rutas
 //app.use('/api/auth', require('./routes/auth.routes'));
-
+app.use('/api/reportes', reportesRoutes);
 app.use('/api/login', require('./routes/login.routes'));
 app.use('/api/proyectos', require('./routes/proyectos.routes'));
 app.use('/api/actividades', require('./routes/actividades.routes'));

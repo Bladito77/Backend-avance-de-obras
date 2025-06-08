@@ -21,15 +21,15 @@ exports.getLogin = async (req, res) => {
   }
 };
 
-// exports.createLogin = async (req, res) => {
-//   try {
-//     const nuevo = await Login.create(req.body);
-//     res.status(201).json(nuevo);
+//  exports.createLogin = async (req, res) => {
+//    try {
+//      const nuevo = await Login.create(req.body);
+//      res.status(201).json(nuevo);
 //   } catch (error) {
-//     console.error("Error al crear login:", error);
-//     res.status(500).json({ message: "Error del servidor" });
-//   }
-// };
+//      console.error("Error al crear login:", error);
+//      res.status(500).json({ message: "Error del servidor" });
+//    }
+//  };
 
 exports.updateLogin = async (req, res) => {
   try {
