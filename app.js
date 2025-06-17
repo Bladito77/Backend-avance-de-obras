@@ -4,6 +4,7 @@ const app = express();
 const { sequelize } = require('./models');
 const reportesRoutes = require('./routes/reportes.routes');
 
+
 require('dotenv').config();
 app.use(cors({
   origin: 'http://localhost:3001', // <--- SOLO permites el frontend local
@@ -30,5 +31,6 @@ app.use('/api/repo_detalle_maq', require('./routes/reporte_D_Deta_maq.routes'));
 app.use('/api/repo_deta_mat', require('./routes/reporte_D_Detalle_mate.routes'));
 app.use('/api/repo_deta_person', require('./routes/reporte_D_Detalle_personal.routes'));
 app.use('/api/repor_deta_encabeza', require('./routes/reporte_D_Encabeza.routes'));
+app.use('/api/reportes', reportesRoutes);
 // Agrega más rutas según crees los archivos
 module.exports = app;

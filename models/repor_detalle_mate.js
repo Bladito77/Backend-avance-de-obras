@@ -4,7 +4,8 @@ const sequelize = require('../config/db');
 const Detalle_mat = sequelize.define('Detalle_mat', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+     autoIncrement: true, // ⚠️ Esto es obligatorio
   },
     id_mat: {
         type: DataTypes.INTEGER(11)

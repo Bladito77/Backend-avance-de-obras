@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GeneradorReporte">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/target/GeneradorReporte.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -5,7 +5,7 @@ exports.getLogins = async (req, res) => {
     const logins = await Login.findAll();
     res.json(logins);
   } catch (error) {
-    console.error("Error al obtener logins:", error);
+    //console.error("Error al obtener logins:", error);
     res.status(500).json({ message: "Error del servidor" });
   }
 };
@@ -16,7 +16,7 @@ exports.getLogin = async (req, res) => {
     if (!login) return res.status(404).json({ message: "Usuario no encontrado" });
     res.json(login);
   } catch (error) {
-    console.error("Error al obtener login:", error);
+    //console.error("Error al obtener login:", error);
     res.status(500).json({ message: "Error del servidor" });
   }
 };
@@ -38,7 +38,7 @@ exports.updateLogin = async (req, res) => {
     });
     res.json(actualizado);
   } catch (error) {
-    console.error("Error al actualizar login:", error);
+    //console.error("Error al actualizar login:", error);
     res.status(500).json({ message: "Error del servidor" });
   }
 };
@@ -48,7 +48,7 @@ exports.deleteLogin = async (req, res) => {
     await Login.destroy({ where: { idUsuario: req.params.id } });
     res.json({ message: "Usuario eliminado" });
   } catch (error) {
-    console.error("Error al eliminar login:", error);
+    //console.error("Error al eliminar login:", error);
     res.status(500).json({ message: "Error del servidor" });
   }
 };
@@ -56,7 +56,8 @@ exports.deleteLogin = async (req, res) => {
 // ✅ MÉTODO DE LOGIN FUNCIONAL
 exports.loginUsuario = async (req, res) => {
   const { Email, Password } = req.body;
-
+  //console.log("→ Email recibido:", Email);
+  //console.log("→ Password recibido:", Password);
   if (!Email || !Password) {
     return res.status(400).json({ message: "Email y contraseña son obligatorios" });
   }
@@ -65,23 +66,27 @@ exports.loginUsuario = async (req, res) => {
     const usuario = await Login.findOne({ where: { Email } });
 
     if (!usuario) {
+       //console.log("⚠️ Usuario no encontrado en BD con Email:", Email);
       return res.status(401).json({ message: "Usuario no encontrado" });
     }
-
-    if (usuario.Password !== Password) {
+    //console.log("→ Usuario encontrado. Password en BD:", usuario.Password);
+    if (usuario.Password.trim() !== Password.trim()) {
+      //console.log("→ Contraseña enviada:", Password);
+      //console.log("→ Contraseña en BD:", usuario.Password);
       return res.status(401).json({ message: "Contraseña incorrecta" });
     }
-
+    //console.log("✅ Login exitoso para:", usuario.Nombres);
     res.status(200).json({
       data: {
         IdUsuario: usuario.idUsuario,
         Email: usuario.Email,
         Nombres: usuario.Nombres,
+        Apellidos: usuario.Apellidos,
         Rol: usuario.Rol
       }
     });
   } catch (error) {
-    console.error("Error al iniciar sesión:", error);
+    //console.error("Error al iniciar sesión:", error);
     res.status(500).json({ message: "Error interno del servidor" });
   }
 };

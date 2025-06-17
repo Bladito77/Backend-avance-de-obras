@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/mysql-connector-j-9.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/jasperreports-6.20.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/itext-2.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/generadorReporteJava/lib/groovy-all-2.4.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

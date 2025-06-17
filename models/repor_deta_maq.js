@@ -4,7 +4,8 @@ const sequelize = require('../config/db');
 const Detalle_maqu = sequelize.define('Detalle_maqu', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true // ⚠️ Esto es obligatorio para que Sequelize maneje la clave primaria
   },
     id_maqu: {
         type: DataTypes.INTEGER(11)

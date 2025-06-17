@@ -10,10 +10,6 @@ exports.getReporteDetallePersonas = async (req, res) => {
     res.status(500).json({ error: 'Error del servidor' });
   }
 }
-// exports.getReporteDetallePersonas = async (req, res) => {
-//   const [rows] = await pool.query('SELECT * FROM reporte_d_detalle_personal');
-//   res.json(rows);
-// };
 exports.getReporteDetallePersona = async (req, res) => {
   try {
     const persona = await ReporteDetaPersona.findByPk(req.params.id);
@@ -24,21 +20,18 @@ exports.getReporteDetallePersona = async (req, res) => {
     res.status(500).json({ error: 'Error del servidor' });
   }
 }
-// exports.getReporteDetallePersona = async (req, res) => {
-//   const [rows] = await pool.query('SELECT * FROM reporte_d_detalle_personal WHERE id = ?', [req.params.id]);
-//   res.json(rows[0]);
-// };
 exports.createReporteDetallePersona = async (req, res) => {
-  const { cedula, consecu } = req.body;
+  const { cedula, consecu, horas } = req.body;
 
-  if (!cedula || !consecu) {
-    return res.status(400).json({ error: 'cedula y consecu son obligatorios' });
+  if (!cedula || !consecu || !horas) {
+    return res.status(400).json({ error: 'cedula, consecu Y horas son obligatorios' });
   }
 
   try {
     const nuevoDetalle = await ReporteDetaPersona.create({
       cedula,
-      consecu
+      consecu,
+      horas
     });
 
     res.json(nuevoDetalle);
@@ -47,16 +40,11 @@ exports.createReporteDetallePersona = async (req, res) => {
     res.status(500).json({ error: 'Error del servidor al crear Detalle de Persona' });
   }
 }
-// exports.createReporteDetallePersona = async (req, res) => {
-//   const { cedula,consecu } = req.body;
-//   const [result] = await pool.query('INSERT INTO reporte_d_detalle_personal (cedula, consecu) VALUES (?, ?)', [cedula, consecu]);
-//   res.json({ id: result.insertId, cedula, consecu });
-// };
 exports.updateReporteDetallePersona = async (req, res) => {
-  const { cedula, consecu } = req.body;
+  const { cedula, consecu, horas } = req.body;
 
-  if (!cedula || !consecu) {
-    return res.status(400).json({ error: 'cedula y consecu son obligatorios' });
+  if (!cedula || !consecu || !horas) {
+    return res.status(400).json({ error: 'cedula, consecu y horas son obligatorios' });
   }
 
   try {
@@ -65,6 +53,7 @@ exports.updateReporteDetallePersona = async (req, res) => {
 
     detalle.cedula = cedula;
     detalle.consecu = consecu;
+    detalle.horas = horas;
     await detalle.save();
 
     res.json(detalle);
@@ -73,11 +62,6 @@ exports.updateReporteDetallePersona = async (req, res) => {
     res.status(500).json({ error: 'Error del servidor al actualizar Detalle de Persona' });
   }
 }
-// exports.updateReporteDetallePersona = async (req, res) => {
-//   const { cedula,consecu } = req.body;
-//   await pool.query('UPDATE reporte_d_detalle_personal SET cedula=?, consecu=? WHERE id=?', [cedula,consecu, req.params.id]);
-//   res.json({ message: 'Detalle Persona actualizado' });
-// };
 exports.deleteReporteDetallePersona = async (req, res) => {
   try {
     const detalle = await ReporteDetaPersona.findByPk(req.params.id);
@@ -91,7 +75,3 @@ exports.deleteReporteDetallePersona = async (req, res) => {
   }
 }
 
-// exports.deleteReporteDetallePersona = async (req, res) => {
-//   await pool.query('DELETE FROM reporte_d_detalle_personal WHERE id = ?', [req.params.id]);
-//   res.json({ message: 'Detalle Persona eliminado' });
-// };
