@@ -30,7 +30,7 @@ app.use('/api/repo_detalle_maq', require('./routes/reporte_D_Deta_maq.routes'));
 //app.use('/api/proyectos', require('./routes/reporte_D_Detatalle_mate.routes'));
 app.use('/api/repo_deta_mat', require('./routes/reporte_D_Detalle_mate.routes'));
 app.use('/api/repo_deta_person', require('./routes/reporte_D_Detalle_personal.routes'));
-app.use('/api/repor_deta_encabeza', require('./routes/reporte_D_Encabeza.routes'));
+app.use('/api/repor_deta_encabeza', require('./routes/reporte_d_Encabeza.routes'));
 app.use('/api/reportes', reportesRoutes);
 // Agrega más rutas según crees los archivos
 module.exports = app;
