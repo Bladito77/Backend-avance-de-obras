@@ -1,15 +1,13 @@
 
 const express = require('express');
 const router = express.Router();
-const { guardarReporteCompleto } = require('../controllers/reportes.controller');
-const { generarPDF } = require('../controllers/reportes.controller');
+const { guardarReporteCompleto, generarPDF } = require('../controllers/reportes.controller');
+//const { generarPDF } = require('../controllers/reportes.controller');
 const { spawn } = require('child_process');
 const path = require('path');
 
 // Ruta para guardar el reporte completo
 router.post('/', guardarReporteCompleto);
-
-
 // Ruta para imprimir el reporte en PDF usando Java y Jasper
 router.get('/imprimir/:id', (req, res) => {
   const { id } = req.params;
@@ -39,8 +37,9 @@ router.get('/imprimir/:id', (req, res) => {
       res.status(500).send('Error al generar el reporte.');
     }
   });
-  router.get('/pdf/:id', generarPDF);
 });
+
+router.get('/pdf/:id', generarPDF);
 
 module.exports = router;
 

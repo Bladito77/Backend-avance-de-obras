@@ -24,8 +24,12 @@ public class GeneradorReporte {
          Connection var5 = DriverManager.getConnection(var2, var3, var4);
 
          try {
-            String var6 = "reports/reporte_diario_obra.jasper";
+            //String var6 = "reports/reporte_diario_obra.jasper";
+            //String var6 = new java.io.File("reports/reporte_diario_obra.jasper").getAbsolutePath();
+            String var6 = new java.io.File("./reports/reporte_diario_obra.jasper").getCanonicalPath();
+            System.out.println("📁 Usando ruta: " + var6);
             HashMap var7 = new HashMap();
+            System.out.println("📁 Ruta base desde la que busca el archivo: " + new java.io.File(".").getAbsolutePath());
             var7.put("id", Integer.parseInt(var1));
             JasperPrint var8 = JasperFillManager.fillReport(var6, var7, var5);
             String var9 = "reportes_generados/reporte_" + var1 + ".pdf";
