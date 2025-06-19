@@ -4,10 +4,14 @@ const app = express();
 const { sequelize } = require('./models');
 const reportesRoutes = require('./routes/reportes.routes');
 
-
+const allowedOrigins = [
+  'http://localhost:3001', // desarrollo local
+  'https://backend-avance-de-obras-production.up.railway.app' // para probar desde Postman
+];
 require('dotenv').config();
 app.use(cors({
-  origin: 'http://localhost:3001', // <--- SOLO permites el frontend local
+  origin: allowedOrigins,
+  //origin: 'http://localhost:3001', // <--- SOLO permites el frontend local
   credentials: true
 }));
 
