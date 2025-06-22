@@ -16,7 +16,7 @@ const Equipos = sequelize.define('Equipos', {
     type: DataTypes.INTEGER(11)
   }
 }, {
-  tableName: 'Equipos',
+  tableName: 'equipos',
   timestamps: false
 });
 

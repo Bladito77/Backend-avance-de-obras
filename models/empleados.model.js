@@ -28,7 +28,7 @@ const Empleados = sequelize.define('Empleados', {
     type: DataTypes.STRING(30)
   }
 }, {
-  tableName: 'Empleados',
+  tableName: 'empleados',
   timestamps: false
 });
 
