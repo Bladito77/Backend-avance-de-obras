@@ -10,6 +10,9 @@ sequelize.authenticate()
     app.listen(PORT, () => {
       console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);
     });
+    app.get('/api/ping', (req, res) => {
+      res.send('✅ Backend activo y corriendo');
+    });
   })
   .catch((err) => {
     console.error('❌ Error al conectar a la base de datos:', err);
