@@ -6,7 +6,7 @@ const reportesRoutes = require('./routes/reportes.routes');
 
 const allowedOrigins = [
   'http://localhost:3001', // desarrollo local
-  'https://backend-avance-de-obras-production.up.railway.app' // para probar desde Postman
+  'https://frontend-lmiz8tn5a-bladito77s-projects.vercel.app' // tu frontend en producción
 ];
 require('dotenv').config();
 app.use(cors({
