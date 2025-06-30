@@ -6,7 +6,8 @@ const reportesRoutes = require('./routes/reportes.routes');
 
 const allowedOrigins = [
   'http://localhost:3001', // desarrollo local
-  'https://frontend-lmiz8tn5a-bladito77s-projects.vercel.app' // tu frontend en producción
+  'https://frontend-lmiz8tn5a-bladito77s-projects.vercel.app', // tu frontend en producción
+   'https://reporte-obras-frontend-frontera.vercel.app'  // <--- ESTE
 ];
 require('dotenv').config();
 app.use(cors({
